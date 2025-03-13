@@ -14,7 +14,7 @@ const Clock = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-  return <div className="text-9xl">{time}</div>;
+  return <div className="text-[14rem]">{time}</div>;
 };
 
 export default Clock;
