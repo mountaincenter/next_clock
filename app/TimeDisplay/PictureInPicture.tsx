@@ -4,7 +4,6 @@ import { useRef, useEffect } from "react";
 
 type PipProps = {
   time: string; // 親 (page.tsx) から受け取る最新の時刻
-  isPipActive: boolean; // 親の isPip
   setIsPipActive: (active: boolean) => void; // 親の isPipActive を更新するコールバック
 };
 
@@ -12,11 +11,7 @@ type PipProps = {
  * 画面上には時計をほぼ表示せず、PiP 内にのみ時計を表示
  * - 親の setIsPipActive を呼び出して、PiP 状態を制御させる
  */
-export default function PipComponent({
-  time,
-  isPipActive,
-  setIsPipActive,
-}: PipProps) {
+export default function PipComponent({ time, setIsPipActive }: PipProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
