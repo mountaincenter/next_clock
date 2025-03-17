@@ -1,21 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { format } from "date-fns";
+import React from "react";
 
-const Clock = () => {
-  const [time, setTime] = useState("");
+type ClockProps = {
+  time: string; // 親から受け取る時刻 (例: "12:34:56")
+};
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const formattedTime = format(now, "HH:mm:ss");
-
-      setTime(formattedTime);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
+const Clock: React.FC<ClockProps> = ({ time }) => {
   return (
     <div className="flex justify-center">
       <span className="text-[12rem] min-w-[32rem] text-center font-sans tabular-nums">
