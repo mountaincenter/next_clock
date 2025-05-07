@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import PipComponent from "./TimeDisplay/PictureInPicture";
 import TimeDisplay from "./TimeDisplay/TimeDisplay";
+import SlackButton from "./Button/SlackButton";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 
@@ -26,9 +27,9 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        {/* 
+        {/*
           常に <PipComponent> をマウントしておき、
-          PiP イベント発火で isPipActive が true/false に切り替わるようにする 
+          PiP イベント発火で isPipActive が true/false に切り替わるようにする
         */}
         <PipComponent time={time} setIsPipActive={setIsPipActive} />
 
@@ -43,6 +44,7 @@ export default function Home() {
             ピクチャー イン ピクチャーで表示しています
           </div>
         )}
+        <SlackButton message="Hello World" />
       </main>
     </div>
   );
